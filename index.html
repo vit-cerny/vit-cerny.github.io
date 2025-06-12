@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vít Černý – Životopis / CV</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      margin: 0;
+      background: #eef2f5;
+      color: #2c3e50;
+    }
+
+    .language-switch {
+      text-align: right;
+      background: #34495e;
+      padding: 0.5rem 1rem;
+    }
+
+    .language-switch button {
+      background: #ecf0f1;
+      border: none;
+      margin-left: 0.5rem;
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+
+    .language-switch button:hover {
+      background: #bdc3c7;
+    }
+
+    .cv-container {
+      max-width: 960px;
+      margin: 2rem auto;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 2rem;
+      border-bottom: 2px solid #3498db;
+      gap: 2rem;
+    }
+
+    .profile-photo {
+      flex: 0 0 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: #ccc url('https://via.placeholder.com/150') center/cover no-repeat;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .intro {
+      flex: 1;
+    }
+
+    .intro h1 {
+      margin: 0;
+      font-size: 2.2rem;
+      color: #3498db;
+    }
+
+    .intro p {
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .section {
+      padding: 1.5rem 2rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      display: none;
+    }
+
+    .section.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section h2 {
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 0.4rem;
+      margin-bottom: 1rem;
+      color: #2c3e50;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: column;
+        text-align: center;
+      }
+      .profile-photo {
+        margin-bottom: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="language-switch">
+    <button onclick="setLanguage('cz')">Čeština</button>
+    <button onclick="setLanguage('en')">English</button>
+  </div>
+
+  <div class="cv-container">
+    <div class="header">
+      <div class="profile-photo"></div>
+      <div class="intro">
+        <h1>Vít Černý</h1>
+        <p id="tagline">Technologie, týmová práce a chuť tvořit – to jsem já.</p>
+      </div>
+    </div>
+
+    <!-- Česká verze -->
+    <div class="cv-lang" id="cz">
+      <section class="section">
+        <h2>O mně</h2>
+        <p>Jsem zapálený mladý IT nadšenec, který miluje výzvy – ať už jde o programování, nastavování sítí, nebo ladění kódu. Baví mě učit se nové technologie, hledat elegantní řešení a spolupracovat v týmu. Rád tvořím funkční a užitečné věci, které dávají smysl.</p>
+      </section>
+      <section class="section">
+        <h2>Dovednosti</h2>
+        <ul>
+          <li><strong>Programování:</strong> Python, C, HTML/CSS, C#, Java</li>
+          <li><strong>Sítě:</strong> CCNA, LAN, konfigurace síťových prvků</li>
+          <li><strong>Operační systémy:</strong> Linux/Bash, Windows</li>
+          <li><strong>Nástroje:</strong> Git, SQL, MS Office, základy JavaScriptu</li>
+        </ul>
+      </section>
+      <section class="section">
+        <h2>Projekty</h2>
+        <ul>
+          <li>Webová prezentace školy – statický web s interaktivními prvky</li>
+          <li>Simulace počítačové sítě – konfigurace routerů, analýza provozu</li>
+          <li>Dobrovolná správa zařízení – instalace OS, školení uživatelů</li>
+        </ul>
+      </section>
+      <section class="section">
+        <h2>Certifikace</h2>
+        <ul>
+          <li>CCNAv7: Introduction to Networks</li>
+          <li>CCNAv7: Switching, Routing and Wireless Essentials</li>
+        </ul>
+      </section>
+      <section class="section">
+        <h2>Zájmy</h2>
+        <p>Ve volném čase běhám, vařím, hraju si s hardwarem nebo koukám na nové technologie. Fascinuje mě svět sítí, zabezpečení i open source komunita.</p>
+      </section>
+    </div>
+
+    <!-- English version -->
+    <div class="cv-lang" id="en">
+      <section class="section">
+        <h2>About Me</h2>
+        <p>I'm a passionate young IT enthusiast who loves challenges – whether it's programming, setting up networks or debugging. I enjoy learning new technologies, finding clean solutions, and working with a team. I like creating things that are functional and make sense.</p>
+      </section>
+      <section class="section">
+        <h2>Skills</h2>
+        <ul>
+          <li><strong>Programming:</strong> Python, C, HTML/CSS, C#, Java</li>
+          <li><strong>Networking:</strong> CCNA, LAN, device configuration</li>
+          <li><strong>Operating Systems:</strong> Linux/Bash, Windows</li>
+          <li><strong>Tools:</strong> Git, SQL, MS Office, basic JavaScript</li>
+        </ul>
+      </section>
+      <section class="section">
+        <h2>Projects</h2>
+        <ul>
+          <li>School website – static web with interactive features</li>
+          <li>Network simulation – router config and traffic analysis</li>
+          <li>Volunteer tech support – OS installation, user training</li>
+        </ul>
+      </section>
+      <section class="section">
+        <h2>Certifications</h2>
+        <ul>
+          <li>CCNAv7: Introduction to Networks</li>
+          <li>CCNAv7: Switching, Routing and Wireless Essentials</li>
+        </ul>
+      </section>
+      <section class="section">
+        <h2>Interests</h2>
+        <p>In my free time I run, cook, experiment with hardware and follow tech innovations. I'm fascinated by networks, cybersecurity, and the open-source world.</p>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    function setLanguage(lang) {
+      const langs = document.querySelectorAll(".cv-lang");
+      langs.forEach((el) => (el.style.display = "none"));
+
+      const active = document.getElementById(lang);
+      if (active) {
+        active.style.display = "block";
+        const sections = active.querySelectorAll(".section");
+        sections.forEach((sec, i) => {
+          sec.classList.remove("active");
+          setTimeout(() => sec.classList.add("active"), i * 150);
+        });
+
+        const tagline = {
+          cz: "Technologie, týmová práce a chuť tvořit – to jsem já.",
+          en: "Technology, teamwork and a drive to create – that's me."
+        };
+        document.getElementById("tagline").textContent = tagline[lang];
+      }
+    }
+
+    setLanguage("cz"); // výchozí jazyk
+  </script>
+</body>
+</html>
