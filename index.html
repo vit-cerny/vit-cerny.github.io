@@ -2,162 +2,97 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vít Černý – Junior Network Technician / Programmer</title>
+  <!-- Google Font & Font Awesome for icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a2d9d6b9b1.js" crossorigin="anonymous"></script>
   <style>
-    /* Google Font */
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
-
-    :root {
-      --primary: #3f51b5;
-      --accent: #ff9800;
-      --text: #333;
-      --bg: #f5f5f5;
-    }
-
+    :root { --primary: #3f51b5; --accent: #ff9800; --text: #333; --bg: #f5f5f5; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Roboto', sans-serif;
-      line-height: 1.6;
-      color: var(--text);
-      background: var(--bg);
-      padding: 20px;
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 40px;
-      animation: fadeIn 0.6s ease-out;
-    }
-    header h1 {
-      font-size: 2.5rem;
-      color: var(--primary);
-    }
-    header p {
-      font-size: 1.1rem;
-      margin-top: 5px;
-    }
-
-    section {
-      background: white;
-      padding: 20px;
-      margin-bottom: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeIn 0.8s forwards;
-    }
-    section:nth-of-type(1) { animation-delay: 0.2s; }
-    section:nth-of-type(2) { animation-delay: 0.4s; }
-    section:nth-of-type(3) { animation-delay: 0.6s; }
-    section:nth-of-type(4) { animation-delay: 0.8s; }
-    section:nth-of-type(5) { animation-delay: 1s; }
-    section:nth-of-type(6) { animation-delay: 1.2s; }
-    section:nth-of-type(7) { animation-delay: 1.4s; }
-
-    h2 {
-      color: var(--primary);
-      margin-bottom: 10px;
-      border-bottom: 2px solid var(--accent);
-      display: inline-block;
-      padding-bottom: 4px;
-    }
-
+    body { font-family: 'Roboto', sans-serif; color: var(--text); background: var(--bg); padding: 20px; }
+    header { text-align: center; margin-bottom: 30px; }
+    header img { width: 130px; height: 130px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; }
+    header h1 { font-size: 2.5rem; color: var(--primary); }
+    .social { margin-top: 10px; }
+    .social a { margin: 0 8px; color: var(--text); font-size: 1.4rem; text-decoration: none; transition: color .3s; }
+    .social a:hover { color: var(--accent); }
+    #lang-switch { position: fixed; top: 20px; right: 20px; padding: 8px 12px; background: var(--primary); color: white; border: none; border-radius: 4px; cursor: pointer; }
+    section { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); animation: fadeIn .6s ease-out; }
+    h2 { color: var(--primary); margin-bottom: 10px; border-bottom: 2px solid var(--accent); display: inline-block; padding-bottom: 4px; }
     ul { list-style: none; }
-    ul li {
-      margin: 6px 0;
-      padding-left: 1.2em;
-      position: relative;
-    }
-    ul li:before {
-      content: '•';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-    }
-
-    /* Fade-in keyframes */
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Simple responsive columns */
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-    @media (max-width: 600px) {
-      .two-col { grid-template-columns: 1fr; }
-    }
+    ul li { margin: 6px 0; padding-left: 1.2em; position: relative; }
+    ul li:before { content: '•'; position: absolute; left: 0; color: var(--accent); }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media (max-width:600px) { .two-col { grid-template-columns: 1fr; } }
+    .lang-cz { display: none; }
   </style>
 </head>
 <body>
+  <button id="lang-switch">CZ/EN</button>
 
   <header>
-    <h1>Vít Černý</h1>
-    <p>Junior Network Technician / Programmer</p>
-    <p>witek.cerny@seznam.cz</p>
+    <img src="photo.jpg" alt="Vít Černý">
+    <h1><span class="lang-en">Vít Černý</span><span class="lang-cz">Vít Černý</span></h1>
+    <p class="social">
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </p>
   </header>
 
   <section>
-    <h2>Skills</h2>
+    <h2><span class="lang-en">Skills</span><span class="lang-cz">Dovednosti</span></h2>
     <div class="two-col">
       <ul>
-        <li>C</li>
-        <li>Python</li>
-        <li>C#</li>
-        <li>C++</li>
-        <li>Java</li>
-        <li>HTML / CSS</li>
+        <li><i class="fas fa-code"></i> C</li>
+        <li><i class="fab fa-python"></i> Python</li>
+        <li><i class="fas fa-cubes"></i> C#</li>
+        <li><i class="fas fa-cube"></i> C++</li>
+        <li><i class="fab fa-java"></i> Java</li>
+        <li><i class="fab fa-html5"></i> HTML/CSS</li>
       </ul>
       <ul>
-        <li>Linux</li>
-        <li>Windows</li>
-        <li>CCNAv7: Introduction to Networks</li>
-        <li>CCNAv7: Switching, Routing & Wireless Essentials</li>
-        <li>Information Networks</li>
+        <li><i class="fab fa-linux"></i> Linux</li>
+        <li><i class="fab fa-windows"></i> Windows</li>
+        <li><i class="fas fa-network-wired"></i> CCNAv7: Intro to Networks</li>
+        <li><i class="fas fa-route"></i> CCNAv7: Routing & Wireless</li>
+        <li><i class="fas fa-globe"></i> Info Networks</li>
       </ul>
     </div>
   </section>
 
   <section>
-    <h2>Education</h2>
-    <p><strong>Secondary School of Informatics, Post & Finance, Brno</strong><br/>
-       Sep 2021 – Jun 2025<br/>
-       Maturita: Czech & English Languages, IT & OS</p>
+    <h2><span class="lang-en">Education</span><span class="lang-cz">Vzdělání</span></h2>
+    <p><strong><span class="lang-en">Secondary School of Informatics, Post & Finance, Brno</span><span class="lang-cz">Střední škola informatiky, poštovnictví a finančnictví Brno</span></strong><br>
+       Sep 2021 – Jun 2025</p>
   </section>
 
   <section>
-    <h2>Experience</h2>
-    <p><strong>Czech Prison Service, Rapotice Prison – IT Intern</strong><br/>
-       May & Oct 2024<br/>
-       • PC hardware & OS maintenance<br/>
-       • Network device setup & troubleshooting</p>
+    <h2><span class="lang-en">Experience</span><span class="lang-cz">Praxe</span></h2>
+    <p><strong><span class="lang-en">Czech Prison Service, Rapotice Prison – IT Intern</span><span class="lang-cz">Vězeňská služba ČR, Věznice Rapotice – Stáž</span></strong><br>
+       May & Oct 2024</p>
   </section>
 
   <section>
-    <h2>Certifications</h2>
+    <h2><span class="lang-en">Certifications</span><span class="lang-cz">Certifikáty</span></h2>
     <ul>
-      <li>CCNAv7: Introduction to Networks (Apr 26, 2024)</li>
-      <li>CCNAv7: Switching, Routing & Wireless Essentials (Jun 10, 2024)</li>
+      <li>CCNAv7: Intro to Networks</li>
+      <li>CCNAv7: Routing & Wireless Essentials</li>
     </ul>
   </section>
 
   <section>
-    <h2>Languages</h2>
+    <h2><span class="lang-en">Languages</span><span class="lang-cz">Jazyky</span></h2>
     <ul>
-      <li>English – C</li>
-      <li>German – A1/A2</li>
+      <li><span class="lang-en">English – C</span><span class="lang-cz">Angličtina – C</span></li>
+      <li><span class="lang-en">German – A1/A2</span><span class="lang-cz">Němčina – A1/A2</span></li>
     </ul>
   </section>
 
   <section>
-    <h2>Technical Tools</h2>
+    <h2><span class="lang-en">Technical Tools</span><span class="lang-cz">Technické nástroje</span></h2>
     <ul>
       <li>VirtualBox & VMware</li>
       <li>Git (branch, commit, push/pull)</li>
@@ -166,7 +101,7 @@
   </section>
 
   <section>
-    <h2>Soft Skills</h2>
+    <h2><span class="lang-en">Soft Skills</span><span class="lang-cz">Soft skills</span></h2>
     <ul>
       <li>Analytical problem‑solving</li>
       <li>Team collaboration</li>
@@ -175,5 +110,12 @@
     </ul>
   </section>
 
+  <script>
+    const btn = document.getElementById('lang-switch');
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.lang-en, .lang-cz').forEach(el => el.classList.toggle('lang-cz'));
+      document.documentElement.lang = document.documentElement.lang === 'en' ? 'cz' : 'en';
+    });
+  </script>
 </body>
 </html>
