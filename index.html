@@ -1,367 +1,179 @@
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Vít Černý – Životopis / CV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vít Černý – Junior Network Technician / Programmer</title>
   <style>
-    /* Globální nastavení */
+    /* Google Font */
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+    :root {
+      --primary: #3f51b5;
+      --accent: #ff9800;
+      --text: #333;
+      --bg: #f5f5f5;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: "Segoe UI", sans-serif;
-      margin: 0;
-      background: #eef2f5;
-      color: #2c3e50;
-    }
-    .language-switch {
-      text-align: right;
-      background: #34495e;
-      padding: 0.5rem 1rem;
-    }
-    .language-switch button {
-      background: #ecf0f1;
-      border: none;
-      margin-left: 0.5rem;
-      padding: 0.4rem 0.8rem;
-      cursor: pointer;
-      font-weight: bold;
-      border-radius: 5px;
-      transition: background 0.3s ease;
-    }
-    .language-switch button:hover {
-      background: #bdc3c7;
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+      padding: 20px;
     }
 
-    /* Kontejner */
-    .cv-container {
-      max-width: 960px;
-      margin: 2rem auto;
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+      animation: fadeIn 0.6s ease-out;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      color: var(--primary);
+    }
+    header p {
+      font-size: 1.1rem;
+      margin-top: 5px;
+    }
+
+    section {
       background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-    }
-
-    /* Hlavička */
-    .header {
-      display: flex;
-      align-items: center;
-      padding: 2rem;
-      border-bottom: 2px solid #3498db;
-      gap: 2rem;
-    }
-    .profile-photo {
-      flex: 0 0 150px;
-      height: 150px;
-      border-radius: 50%;
-      background: #ccc url('https://github.com/vit-cerny/vit-cerny.github.io/blob/main/d400be42-b479-4c30-87ab-977bb1fb4612.png?raw=true') center/cover no-repeat;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    }
-    .intro {
-      flex: 1;
-    }
-    .intro h1 {
-      margin: 0;
-      font-size: 2.2rem;
-      color: #3498db;
-    }
-    .intro p {
-      font-size: 1rem;
-      margin-top: 0.5rem;
-    }
-
-    /* Sekce */
-    .section {
-      padding: 1.5rem 2rem;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-      display: none;
+      transform: translateY(20px);
+      animation: fadeIn 0.8s forwards;
     }
-    .section.active {
-      display: block;
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .section h2 {
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 0.4rem;
-      margin-bottom: 1rem;
-      color: #2c3e50;
-    }
-    ul {
-      padding-left: 1.2rem;
+    section:nth-of-type(1) { animation-delay: 0.2s; }
+    section:nth-of-type(2) { animation-delay: 0.4s; }
+    section:nth-of-type(3) { animation-delay: 0.6s; }
+    section:nth-of-type(4) { animation-delay: 0.8s; }
+    section:nth-of-type(5) { animation-delay: 1s; }
+    section:nth-of-type(6) { animation-delay: 1.2s; }
+    section:nth-of-type(7) { animation-delay: 1.4s; }
+
+    h2 {
+      color: var(--primary);
+      margin-bottom: 10px;
+      border-bottom: 2px solid var(--accent);
+      display: inline-block;
+      padding-bottom: 4px;
     }
 
-    @media (max-width: 768px) {
-      .header { flex-direction: column; text-align: center; }
-      .profile-photo { margin-bottom: 1rem; }
+    ul { list-style: none; }
+    ul li {
+      margin: 6px 0;
+      padding-left: 1.2em;
+      position: relative;
+    }
+    ul li:before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    /* Fade-in keyframes */
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Simple responsive columns */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    @media (max-width: 600px) {
+      .two-col { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Přepínač jazyka -->
-  <div class="language-switch">
-    <button onclick="setLanguage('cz')">Čeština</button>
-    <button onclick="setLanguage('en')">English</button>
-  </div>
+  <header>
+    <h1>Vít Černý</h1>
+    <p>Junior Network Technician / Programmer</p>
+    <p>Padochov 169, 664 12 Oslavany &bull; +420 799 505 843 &bull; witek.cerny@seznam.cz</p>
+  </header>
 
-  <!-- Celý CV kontejner -->
-  <div class="cv-container">
-
-    <!-- Hlavička s fotkou a jménem -->
-    <div class="header">
-      <div class="profile-photo"></div>
-      <div class="intro">
-        <h1>Vít Černý</h1>
-        <p id="tagline">Technologie, týmová práce a chuť tvořit – to jsem já.</p>
-        <p><em>Narozen: 21. 12. 2005 | E-mail: witek.cerny@seznam.cz</em></p>
-      </div>
+  <section>
+    <h2>Skills</h2>
+    <div class="two-col">
+      <ul>
+        <li>C</li>
+        <li>Python</li>
+        <li>C#</li>
+        <li>C++</li>
+        <li>Java</li>
+        <li>HTML / CSS</li>
+      </ul>
+      <ul>
+        <li>Linux</li>
+        <li>Windows</li>
+        <li>CCNAv7: Introduction to Networks</li>
+        <li>CCNAv7: Switching, Routing & Wireless Essentials</li>
+        <li>Information Networks</li>
+      </ul>
     </div>
+  </section>
 
-    <!-- Česká verze -->
-    <div class="cv-lang" id="cz">
+  <section>
+    <h2>Education</h2>
+    <p><strong>Secondary School of Informatics, Post & Finance, Brno</strong><br/>
+       Sep 2021 – Jun 2025<br/>
+       Maturita: Czech & English Languages, IT & OS</p>
+  </section>
 
-      <section class="section">
-        <h2>Profesní profil</h2>
-        <p>Jsem absolvent Střední školy informatiky, poštovnictví a finančnictví Brno, zaměřený na síťové technologie, programování a správu operačních systémů. Díky praxi ve státní i soukromé sféře jsem si osvojil schopnost organizace práce, spolehlivost a týmovou spolupráci. Rád se věnuji analýze problémů, hledání efektivních řešení a neustále rozšiřuji své technické dovednosti. Hledám uplatnění jako junior síťový technik nebo programátor, kde mohu využít své znalosti sítí (CCNA), programování v Pythonu a zkušenosti s Linux/Bash prostředím.</p>
-      </section>
+  <section>
+    <h2>Experience</h2>
+    <p><strong>Czech Prison Service, Rapotice Prison – IT Intern</strong><br/>
+       May & Oct 2024<br/>
+       • PC hardware & OS maintenance<br/>
+       • Network device setup & troubleshooting</p>
+  </section>
 
-      <section class="section">
-        <h2>Klíčové kompetence</h2>
-        <ul>
-          <li><strong>Programovací jazyky:</strong>
-            <ul>
-              <li>C (pokročilý) – algoritmy, datové struktury, ukazatele</li>
-              <li>Python (pokročilý) – skriptování, web scrapers</li>
-              <li>C# (začátečník) – konzolové aplikace</li>
-              <li>C++ (začátečník) – OOP základy</li>
-              <li>Java (začátečník) – syntaktika, kolekce</li>
-              <li>HTML/CSS (pokročilý) – responzivní web, základy JS</li>
-            </ul>
-          </li>
-          <li><strong>Operační systémy & servery:</strong>
-            <ul>
-              <li>Linux/Bash Shell (pokročilý) – instalace, síťové nastavení, skripty</li>
-              <li>MS Windows (pokročilý) – správa účtů, zabezpečení, domény</li>
-            </ul>
-          </li>
-          <li><strong>Sítě a infrastruktura:</strong>
-            <ul>
-              <li>CCNAv7: Introduction to Networks – IP, OSI, protokoly</li>
-              <li>CCNAv7: Switching, Routing & Wireless Essentials – VLAN, Wi-Fi</li>
-              <li>Informační sítě – návrh LAN, zabezpečení</li>
-            </ul>
-          </li>
-          <li><strong>Office & kancelářský software:</strong> MS Word, Excel, základní VBA</li>
-          <li><strong>Další technické dovednosti:</strong> VirtualBox, VMware, Git, SQL</li>
-        </ul>
-      </section>
+  <section>
+    <h2>Certifications</h2>
+    <ul>
+      <li>CCNAv7: Introduction to Networks (Apr 26, 2024)</li>
+      <li>CCNAv7: Switching, Routing & Wireless Essentials (Jun 10, 2024)</li>
+    </ul>
+  </section>
 
-      <section class="section">
-        <h2>Vzdělání</h2>
-        <p><strong>Střední škola informatiky, poštovnictví a finančnictví Brno</strong> (září 2021 – červen 2025)</p>
-        <ul>
-          <li>Maturitní zkouška z českého a anglického jazyka, IT a OS</li>
-          <li>Školní projekty:
-            <ul>
-              <li>Webová prezentace školy – HTML/CSS, JS interaktivita</li>
-              <li>Síťová simulace – VirtualBox, RIP/OSPF, Wireshark analýza</li>
-            </ul>
-          </li>
-        </ul>
-      </section>
+  <section>
+    <h2>Languages</h2>
+    <ul>
+      <li>English – C</li>
+      <li>German – A1/A2</li>
+    </ul>
+  </section>
 
-      <section class="section">
-        <h2>Pracovní zkušenosti</h2>
-        <ul>
-          <li><strong>Město Oslavany, technické služby (brigádník)</strong> – červenec–srpen 2023, 2024; červen 2025</li>
-          <li><strong>Notes Bohemia, Ivančice (skladník)</strong> – červenec 2023, 2024</li>
-          <li><strong>Věznice Rapotice, oddělení informatiky (stáž)</strong> – květen & říjen 2024</li>
-        </ul>
-      </section>
+  <section>
+    <h2>Technical Tools</h2>
+    <ul>
+      <li>VirtualBox & VMware</li>
+      <li>Git (branch, commit, push/pull)</li>
+      <li>SQL (basics)</li>
+    </ul>
+  </section>
 
-      <section class="section">
-        <h2>Certifikáty</h2>
-        <ul>
-          <li>CCNAv7: Introduction to Networks (26. 4. 2024)</li>
-          <li>CCNAv7: Switching, Routing, and Wireless Essentials (10. 6. 2024)</li>
-        </ul>
-      </section>
+  <section>
+    <h2>Soft Skills</h2>
+    <ul>
+      <li>Analytical problem‑solving</li>
+      <li>Team collaboration</li>
+      <li>Workflow & time management</li>
+      <li>Adaptability & eagerness to learn</li>
+    </ul>
+  </section>
 
-      <section class="section">
-        <h2>Projekty & dobrovolnictví</h2>
-        <ul>
-          <li>Instalace a konfigurace OS (Windows 10, Linux)</li>
-          <li>Školení personálu v textových editorech a e-mailu</li>
-          <li>Nastavení sdílených složek pro interní dokumenty</li>
-          <li>Front-end řešení v HTML/CSS, interaktivní galerie JS</li>
-          <li>Hosting na GitHub Pages</li>
-        </ul>
-      </section>
-
-      <section class="section">
-        <h2>Jazykové dovednosti</h2>
-        <ul>
-          <li>Čeština – rodilý mluvčí</li>
-          <li>Angličtina – pokročilá (B2–B2+)</li>
-          <li>Němčina – základní (A1–A2)</li>
-        </ul>
-      </section>
-
-      <section class="section">
-        <h2>Soft skills</h2>
-        <ul>
-          <li>Analytické myšlení, ladění kódu, analýza logů</li>
-          <li>Komunikace – prezentace, školení, dokumentace</li>
-          <li>Týmová spolupráce, koordinace, dodržování termínů</li>
-          <li>Organizace času, samostatnost i práce pod dohledem</li>
-          <li>Adaptabilita, ochota učit se nové technologie</li>
-        </ul>
-      </section>
-
-      <section class="section">
-        <h2>Další aktivity & zájmy</h2>
-        <p>Sport (běhání, cyklistika), pečení a vaření, sledování IT tutoriálů (YouTube, Coursera), fotografování projektů.</p>
-      </section>
-
-      <section class="section">
-        <h2>Reference</h2>
-        <p>Na vyžádání k dispozici jména a kontakty vyučujících či vedoucích projektů.</p>
-      </section>
-
-    </div>
-
-    <!-- English version -->
-    <div class="cv-lang" id="en">
-
-      <section class="section">
-        <h2>Professional Profile</h2>
-        <p>I am a graduate of the High School of Informatics, Postal Services and Finance in Brno, specialized in network technologies, programming and OS administration. Through internships in public and private sectors, I developed strong organizational skills, reliability and team collaboration. I enjoy problem analysis, finding efficient solutions and continuously expanding my technical expertise. Seeking a role as a junior network technician or programmer to apply my CCNA, Python and Linux/Bash skills.</p>
-      </section>
-
-      <section class="section">
-        <h2>Key Competencies</h2>
-        <ul>
-          <li><strong>Programming Languages:</strong>
-            <ul>
-              <li>C (advanced) – algorithms, data structures, pointers</li>
-              <li>Python (advanced) – scripting, web scrapers</li>
-              <li>C# (beginner) – console apps</li>
-              <li>C++ (beginner) – OOP basics</li>
-              <li>Java (beginner) – syntax, collections</li>
-              <li>HTML/CSS (advanced) – responsive web, basic JS</li>
-            </ul>
-          </li>
-          <li><strong>OS & Servers:</strong>
-            <ul>
-              <li>Linux/Bash Shell (advanced) – installations, network setup, scripts</li>
-              <li>MS Windows (advanced) – user accounts, security, domains</li>
-            </ul>
-          </li>
-          <li><strong>Networking & Infrastructure:</strong>
-            <ul>
-              <li>CCNAv7: Introduction to Networks – IP, OSI, protocols</li>
-              <li>CCNAv7: Switching, Routing & Wireless Essentials – VLAN, Wi-Fi</li>
-              <li>Information Networks – LAN design, security</li>
-            </ul>
-          </li>
-          <li><strong>Office Software:</strong> MS Word, Excel, basic VBA</li>
-          <li><strong>Other Tech Skills:</strong> VirtualBox, VMware, Git, SQL</li>
-        </ul>
-      </section>
-
-      <section class="section">
-        <h2>Education</h2>
-        <p><strong>High School of Informatics, Postal Services and Finance, Brno</strong> (Sep 2021 – Jun 2025)</p>
-        <ul>
-          <li>Maturita exam in Czech & English languages, IT and OS</li>
-          <li>School projects:
-            <ul>
-              <li>School website – HTML/CSS, JS interactivity</li>
-              <li>Network simulation – VirtualBox, RIP/OSPF, Wireshark analysis</li>
-            </ul>
-          </li>
-        </ul>
-      </section>
-
-      <section class="section">
-        <h2>Work Experience</h2>
-        <ul>
-          <li><strong>City of Oslavany, Technical Services (summer worker)</strong> – Jul–Aug 2023, 2024; Jun 2025</li>
-          <li><strong>Notes Bohemia, Ivančice (warehouse assistant)</strong> – Jul 2023, 2024</li>
-          <li><strong>Rapotice Prison, IT Department (intern)</strong> – May & Oct 2024</li>
-        </ul>
-      </section>
-
-      <section class="section">
-        <h2>Certificates</h2>
-        <ul>
-          <li>CCNAv7: Introduction to Networks (Apr 26, 2024)</li>
-          <li>CCNAv7: Switching, Routing and Wireless Essentials (Jun 10, 2024)</li>
-        </ul>
-      </section>
-
-      <section class="section">
-        <h2>Projects & Volunteer Work</h2>
-        <ul>
-          <li>OS installation and configuration (Windows 10, Linux)</li>
-          <li>Staff training on text editors and email</li>
-          <li>Setup of shared folders for internal docs</li>
-          <li>Front-end solutions in HTML/CSS, interactive JS gallery</li>
-          <li>Hosting on GitHub Pages</li>
-        </ul>
-      </section>
-
-      <section class="section">
-        <h2>Languages</h2>
-        <ul>
-          <li>Czech – native</li>
-          <li>English – advanced (B2–B2+)</li>
-          <li>German – basic (A1–A2)</li>
-        </ul>
-      </section>
-
-      <section class="section">
-        <h2>Soft Skills</h2>
-        <ul>
-          <li>Analytical thinking, code debugging, log analysis</li>
-          <li>Communication – presentations, training, documentation</li>
-          <li>Teamwork, task coordination, meeting deadlines</li>
-          <li>Time management, independence & supervision</li>
-          <li>Adaptability, eagerness to learn new tech</li>
-        </ul>
-      </section>
-
-      <section class="section">
-        <h2>Additional Activities & Interests</h2>
-        <p>Sports (running, cycling), baking & cooking, following IT tutorials (YouTube, Coursera), project photography.</p>
-      </section>
-
-      <section class="section">
-        <h2>References</h2>
-        <p>Available upon request from teachers or project supervisors.</p>
-      </section>
-
-    </div>
-
-  </div>
-
-  <script>
-    function setLanguage(lang) {
-      document.querySelectorAll(".cv-lang").forEach(el => el.style.display = "none");
-      let active = document.getElementById(lang);
-      active.style.display = "block";
-      active.querySelectorAll(".section").forEach((sec, i) => {
-        sec.classList.remove("active");
-        setTimeout(() => sec.classList.add("active"), i * 150);
-      });
-      document.getElementById("tagline").textContent = lang === 'cz'
-        ? "Technologie, týmová práce a chuť tvořit – to jsem já."
-        : "Technology, teamwork and a drive to create – that's me.";
-    }
-    // Inicializace
-    setLanguage('cz');
-  </script>
 </body>
 </html>
